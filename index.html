@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodhi Beads | 菩提子 | Raw Seeds by Kilogram</title>
+  <!--
+  IMAGE MANIFEST
+  - img-hero-bodhi-seed: Hero seed render placeholder, 1:1, min 1200x1200
+  - img-phoenix-eye-main: Phoenix Eye Bodhi main product photo, 1:1, min 800x800
+  - img-star-moon-main: Star & Moon Bodhi main product photo, 1:1, min 800x800
+  - img-rudraksha-main: Nepali Rudraksha main product photo, 1:1, min 800x800
+  - img-lotus-main: Lotus Bodhi main product photo, 1:1, min 800x800
+  - img-dragon-eye-main: Dragon Eye Bodhi main product photo, 1:1, min 800x800
+  - img-white-jade-main: White Jade Bodhi main product photo, 1:1, min 800x800
+  - img-thousand-eye-main: Thousand Eye Bodhi main product photo, 1:1, min 800x800
+  - img-tiger-skin-main: Tiger Skin Bodhi main product photo, 1:1, min 800x800
+  - img-detail-main: Active detail image placeholder, 1:1, min 1200x1200
+  - img-detail-thumb-1: Detail thumbnail 1, 1:1, min 400x400
+  - img-detail-thumb-2: Detail thumbnail 2, 1:1, min 400x400
+  - img-detail-thumb-3: Detail thumbnail 3, 1:1, min 400x400
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&family=Noto+Serif+Devanagari:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lapis-ground: #1f2f57;
+      --lokta-fiber: #e3d5b8;
+      --teak-shadow: #35251a;
+      --robe-maroon: #6f1f2c;
+      --butter-lamp: #cf9f43;
+      --malachite-weathered: #2e7d67;
+      --display: "Cinzel", serif;
+      --body: "Inter", system-ui, sans-serif;
+      --cjk: "Noto Serif SC", serif;
+      --devanagari: "Noto Serif Devanagari", serif;
+      --radius: 14px;
+      --shadow: 0 10px 35px rgba(0,0,0,0.2);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--body);
+      color: var(--teak-shadow);
+      background: var(--lokta-fiber);
+      line-height: 1.5;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.3) 0 1px, transparent 1px),
+        radial-gradient(circle at 70% 50%, rgba(0,0,0,0.035) 0 1px, transparent 1px);
+      background-size: 3px 3px, 5px 5px;
+    }
+    h1,h2,h3 { font-family: var(--display); letter-spacing: 0.03em; line-height: 1.2; margin: 0 0 .6rem; }
+    p { margin: 0 0 1rem; }
+    .cjk { font-family: var(--cjk); }
+    .dev { font-family: var(--devanagari); }
+    .container { width: min(1160px, 92vw); margin: 0 auto; }
+    .btn,button {
+      background: var(--lapis-ground);
+      color: #fff;
+      border: 0;
+      border-radius: 999px;
+      padding: .6rem 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button[disabled] { opacity: .5; cursor: not-allowed; }
+    :focus-visible { outline: 3px solid var(--butter-lamp); outline-offset: 2px; }
+
+    header {
+      position: sticky; top: 0; z-index: 30;
+      background: rgba(227,213,184,0.93);
+      border-bottom: 1px solid rgba(53,37,26,.2);
+      backdrop-filter: blur(6px);
+    }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem 0; }
+    .lockup { display: flex; align-items: center; gap: .6rem; }
+    .lockup-main { font-family: var(--display); font-weight: 700; color: var(--lapis-ground); }
+    .lockup-sub { font-family: var(--cjk); color: var(--robe-maroon); font-size: 1.08rem; }
+    nav a { color: var(--teak-shadow); text-decoration: none; margin: 0 .45rem; font-size: .92rem; }
+    .cart-btn { position: relative; background: transparent; color: var(--teak-shadow); border: 1px solid rgba(53,37,26,.3); }
+    .badge {
+      position: absolute; top: -.45rem; right: -.45rem;
+      background: var(--robe-maroon); color:#fff; font-size: .75rem;
+      width: 1.2rem; height: 1.2rem; border-radius: 50%; display:grid; place-items:center;
+    }
+    .wheel {
+      width: 28px; height: 28px; border: 2px solid var(--butter-lamp); border-radius: 50%;
+      display: grid; place-items: center; font-size: 11px; color: var(--butter-lamp);
+      transition: transform .15s linear;
+    }
+
+    .hero {
+      background: linear-gradient(140deg, var(--lapis-ground), #243f60 60%, #2e5962);
+      color: #fff;
+      padding: 3rem 0 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content:"";
+      position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.06) 0 2px, transparent 2px 12px);
+      opacity:.28;
+      pointer-events:none;
+    }
+    .hero-grid { position: relative; z-index: 1; display:grid; grid-template-columns: 1.2fr .8fr; gap: 1.4rem; align-items: center; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); color: var(--lokta-fiber); }
+    .hero-copy { font-size: 1rem; max-width: 62ch; }
+    .accent-mantra { font-size: .85rem; opacity:.9; display:inline-block; border-bottom:1px dashed rgba(255,255,255,.4); cursor: help; }
+    .seed-hero {
+      aspect-ratio: 1/1; border-radius: 50%;
+      width:min(420px,70vw); margin-inline:auto;
+      background: radial-gradient(circle at 35% 35%, #c9a36b 0 18%, #8f673d 50%, #5f4024 85%);
+      box-shadow: inset -20px -30px 60px rgba(0,0,0,.35), var(--shadow);
+      animation: turnSeed 12s linear infinite;
+    }
+    @keyframes turnSeed { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+
+    section { padding: 2.5rem 0; }
+    .section-title { color: var(--lapis-ground); margin-bottom: 1rem; }
+
+    .panel {
+      background: rgba(255,255,255,.5);
+      border: 1px solid rgba(53,37,26,.2);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .collection-controls { display:grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap:.6rem; margin-bottom:1rem; }
+    .collection-controls label { font-size:.85rem; font-weight:600; display:block; margin-bottom:.25rem; }
+    .collection-controls select { width:100%; padding:.5rem; border-radius:10px; border:1px solid #9f8d72; background:#fff; }
+
+    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
+    .card {
+      background: #fff; border-radius: var(--radius); border: 1px solid rgba(53,37,26,.2);
+      overflow:hidden; box-shadow: 0 6px 16px rgba(0,0,0,.09);
+      transition: transform .25s ease, box-shadow .25s ease;
+      cursor:pointer;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 14px 28px rgba(0,0,0,.18); }
+    .card img { width:100%; aspect-ratio:1/1; object-fit:cover; display:block; transition: transform .3s ease; }
+    .card:hover img { transform: rotate(-1deg) scale(1.03); }
+    .card-body { padding:.8rem; }
+    .meta { color:#5c4f40; font-size:.86rem; }
+    .badges { display:flex; gap:.35rem; flex-wrap:wrap; margin:.45rem 0; }
+    .badge-tag { font-size:.74rem; padding:.18rem .45rem; border-radius:999px; background:#f2e6cf; border:1px solid #d1b67f; }
+
+    .modal { position:fixed; inset:0; z-index:50; background:rgba(0,0,0,.55); display:none; }
+    .modal.open { display:block; }
+    .modal-card {
+      width:min(1120px,94vw); max-height:92vh; overflow:auto;
+      background:var(--lokta-fiber); margin: 4vh auto; border-radius:18px; padding:1rem;
+      border:1px solid #967f60;
+    }
+    .detail-layout { display:grid; grid-template-columns: .95fr 1.05fr; gap:1rem; }
+    .zoom-wrap { overflow:hidden; border-radius:12px; border:1px solid #927f67; background:#fff; }
+    .zoom-wrap img { width:100%; display:block; transition: transform .2s linear; transform-origin:center; }
+    .thumbs { display:grid; grid-template-columns: repeat(3,1fr); gap:.45rem; margin-top:.45rem; }
+    .thumbs img { width:100%; border:1px solid #8c7a61; border-radius:8px; cursor:pointer; }
+
+    .pill-row { display:flex; flex-wrap:wrap; gap:.42rem; margin-bottom:.7rem; }
+    .pill {
+      border:1px solid #806648; border-radius:999px; padding:.35rem .7rem;
+      background:#fff; color:var(--teak-shadow); font-size:.87rem;
+    }
+    .pill.active { background:var(--lapis-ground); color:#fff; border-color:var(--lapis-ground); }
+    .switch { display:flex; align-items:center; gap:.5rem; margin:.45rem 0; }
+    .calc-grid { display:grid; grid-template-columns: 1fr auto; gap: .4rem .7rem; font-size:.95rem; margin: .8rem 0; }
+    .calc-grid dt { color:#584531; }
+    .calc-grid dd { margin:0; text-align:right; font-weight:600; }
+    .tier-table { width:100%; border-collapse: collapse; font-size:.86rem; margin:.6rem 0; }
+    .tier-table th,.tier-table td { border:1px solid #bca480; padding:.4rem; text-align:left; }
+    .tier-table tr.active { background: #e8d4a8; }
+    .nudge { font-size:.85rem; color:var(--robe-maroon); min-height:1.4rem; }
+
+    .sticky-total-mobile {
+      position: sticky; bottom: 0; background: #fff7e6; border-top:1px solid #c0a885;
+      padding:.55rem .8rem; margin: 1rem -1rem -1rem;
+      display:none; justify-content:space-between; align-items:center;
+    }
+
+    .sizing-grid { display:grid; grid-template-columns: 1fr 1fr; gap:1rem; }
+    .scale-area { min-height:170px; display:grid; place-items:center; background:#fff; border:1px solid #b9a58a; border-radius:12px; }
+    .coin { width: 26px; height: 26px; border-radius:50%; border:2px solid #9d8e7a; position:relative; margin-top: 1rem; }
+
+    .source-track { display:flex; overflow:auto; gap:1rem; padding-bottom:.4rem; scroll-snap-type:x mandatory; }
+    .source-step { min-width:280px; scroll-snap-align:start; background:#fff; border:1px solid #b49d7f; border-radius:12px; padding:.9rem; }
+
+    .reviews-wrap { overflow:hidden; border-top:1px solid #ab9779; border-bottom:1px solid #ab9779; padding:.7rem 0; }
+    .marquee { display:flex; gap:.8rem; width:max-content; animation: marquee 34s linear infinite; }
+    .reviews-wrap:hover .marquee { animation-play-state: paused; }
+    @keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+    .review { min-width:290px; background:#fff; border:1px solid #bea789; border-radius:12px; padding:.8rem; }
+
+    .form-grid { display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap:.6rem; }
+    input,textarea,select { width:100%; border:1px solid #927d60; border-radius:10px; padding:.58rem; font:inherit; }
+    .error { color:#8a1126; font-size:.82rem; min-height:1.1rem; }
+    .success { color:#0d5f40; font-weight:600; }
+
+    footer { background: var(--teak-shadow); color:#f1e7d3; padding:2rem 0; }
+    footer a { color:#f1e7d3; }
+
+    .reveal { opacity:0; transform:translateY(22px); transition:.5s ease; }
+    .reveal.in { opacity:1; transform:none; }
+
+    .cart-drawer {
+      position:fixed; right:0; top:0; height:100vh; width:min(420px,96vw); background:#fff8ea;
+      z-index:60; border-left:1px solid #b79f80; transform:translateX(102%); transition:transform .25s ease;
+      padding:1rem; overflow:auto;
+    }
+    .cart-drawer.open { transform:translateX(0); }
+    .cart-item { border:1px solid #c9b18b; border-radius:10px; padding:.6rem; margin-bottom:.5rem; background:#fff; }
+
+    @media (max-width: 920px) {
+      .hero-grid, .detail-layout, .sizing-grid { grid-template-columns: 1fr; }
+      nav { display:none; }
+      .collection-controls { grid-template-columns: 1fr 1fr; }
+      .sticky-total-mobile { display:flex; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="lockup" aria-label="Bodhi Beads wordmark">
+        <div>
+          <div class="lockup-main">BODHI BEADS</div>
+          <div class="lockup-sub cjk">菩提子</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#collection">Collection</a>
+        <a href="#grading">Grading</a>
+        <a href="#source">Our Source</a>
+        <a href="#shipping">Shipping</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:.5rem;">
+        <div class="wheel" id="prayer-wheel" aria-hidden="true">☸</div>
+        <button class="cart-btn" id="open-cart" aria-label="Open order cart">Cart <span id="cart-total-head">$0</span><span class="badge" id="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero reveal">
+      <div class="container hero-grid">
+        <div>
+          <h1>Raw bodhi and rudraksha seed stock, graded in Kathmandu and sold by the kilogram.</h1>
+          <p class="hero-copy">Siddhartha Gautama awakened beneath the Bodhi tree at Bodh Gaya, and the seed still carries that memory in the hand. A mala holds 108 beads, counted breath by breath, mantra by mantra, until the surface turns from pale bone to deep amber through years of touch. Nepal’s Terai and Himalayan foothills still supply the material most serious makers seek. We trade it raw by weight, so each craftsperson can string the final lineage.</p>
+          <p><span class="accent-mantra dev" title="Om Mani Padme Hum — Jewel in the lotus.">ॐ मणि पद्मे हूँ</span></p>
+        </div>
+        <div>
+          <!-- REPLACE: hero bodhi seed close texture, 1:1, min 1200x1200 -->
+          <img id="img-hero-bodhi-seed" class="seed-hero" src="https://picsum.photos/seed/bodhi-hero/1200/1200" alt="Large close view of bodhi seed texture">
+        </div>
+      </div>
+    </section>
+
+    <section class="container reveal" id="design-plan">
+      <h2 class="section-title">Design plan and self-critique</h2>
+      <div class="panel">
+        <p><strong>Token palette:</strong> <code>--lapis-ground #1f2f57</code>, <code>--lokta-fiber #e3d5b8</code>, <code>--teak-shadow #35251a</code>, <code>--robe-maroon #6f1f2c</code>, <code>--butter-lamp #cf9f43</code>, <code>--malachite-weathered #2e7d67</code>.</p>
+        <p><strong>Type roles:</strong> Cinzel (display lockup + heads), Inter (dense product body data), Noto Serif SC + Noto Serif Devanagari (Chinese/Nepali glyph integrity).</p>
+        <p><strong>Layout concept:</strong> Lokta-paper trading ledger with dense supplier controls above imagery, then operational sections in a single scroll path from collection to logistics.</p>
+        <p><strong>Signature element:</strong> a scroll-velocity prayer wheel in the header, signaling ritual movement while users inspect price tiers and kilos.</p>
+        <p><strong>Self-critique revision:</strong> I removed an initially neutral gray fallback and replaced it with teak-shadow to avoid a generic ecommerce palette. I also narrowed the signature from multiple animated motifs to one prayer wheel so the identity stays specific and not templated.</p>
+      </div>
+    </section>
+
+    <section class="container reveal" id="collection">
+      <h2 class="section-title">Collection — raw seed stock by kilogram</h2>
+      <div class="collection-controls" aria-label="Collection filters and sorting">
+        <div>
+          <label for="filter-size">Filter by size</label>
+          <select id="filter-size"><option value="all">All sizes</option><option>6mm</option><option>7mm</option><option>8mm</option><option>9mm</option><option>10mm</option><option>12mm</option><option>14mm</option><option>18mm</option></select>
+        </div>
+        <div>
+          <label for="filter-grade">Filter by grade</label>
+          <select id="filter-grade"><option value="all">All grades</option><option>A</option><option>AA</option><option>AAA</option><option>Collector</option></select>
+        </div>
+        <div>
+          <label for="filter-price">Filter by base price/kg</label>
+          <select id="filter-price"><option value="all">All prices</option><option value="0-59">Under $60</option><option value="60-99">$60–$99</option><option value="100-999">$100+</option></select>
+        </div>
+        <div>
+          <label for="sort-by">Sort by</label>
+          <select id="sort-by"><option value="price">Price</option><option value="popularity">Popularity</option><option value="size">Bead size</option></select>
+        </div>
+      </div>
+      <div class="grid" id="product-grid"></div>
+    </section>
+
+    <section class="container reveal" id="grading">
+      <h2 class="section-title">Grading and sizing</h2>
+      <div class="sizing-grid">
+        <div class="panel">
+          <h3>True relative size comparator</h3>
+          <div class="pill-row" id="size-comparator-controls"></div>
+          <div class="scale-area" id="scale-area" aria-live="polite"></div>
+          <div class="coin" aria-label="Reference coin"></div>
+        </div>
+        <div class="panel">
+          <h3>Grade comparison</h3>
+          <div class="pill-row" id="grade-tabs"></div>
+          <div id="grade-detail"></div>
+          <hr>
+          <h3>Nepali rudraksha mukhi guide</h3>
+          <div class="pill-row" id="mukhi-controls"></div>
+          <p id="mukhi-detail" class="meta"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container reveal" id="source">
+      <h2 class="section-title">Our source — Kathmandu grading line</h2>
+      <div class="panel">
+        <p>Our stock moves on harvest rhythms, not trend cycles. Bodhi and rudraksha are collected from the Terai lowlands and lower Himalayan foothills during short seasonal windows when mature seeds dry naturally and can be sorted without forced heat. Collectors bring sacks into Kathmandu where our grading table checks diameter bands, face definition, crack rejection, and drilling accuracy lot by lot. Each kilogram is hand-sieved twice, then matched for color consistency so makers can string from one lot without jarring shifts. We work direct with harvest families and pay against verified weight, then document each outbound batch by seed type, millimeter range, and grade outcome. The result is simple: a graded kilogram that behaves predictably at the bench, whether you buy 0.5kg for boutique runs or 25kg for wholesale inventory.</p>
+        <div class="source-track" aria-label="Seed journey timeline">
+          <article class="source-step"><h3>Terai harvest</h3><p>Dry-season collection from mature trees, then first sort at village level.</p></article>
+          <article class="source-step"><h3>Foothill intake</h3><p>Mixed sacks weighed, moisture checked, and logged before transport.</p></article>
+          <article class="source-step"><h3>Kathmandu grading</h3><p>Diameter sieve, crack rejection, color matching, drilling QC by hand.</p></article>
+          <article class="source-step"><h3>Export prep</h3><p>Lots sealed, labeled in kg bands, then dispatched by DHL/FedEx.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container reveal">
+      <h2 class="section-title">Customer voices</h2>
+      <p><strong>4.8 average · 312 reviews · 41 countries</strong></p>
+      <div class="reviews-wrap">
+        <div class="marquee" id="reviews-marquee"></div>
+      </div>
+    </section>
+
+    <section class="container reveal" id="shipping">
+      <h2 class="section-title">Shipping and customs</h2>
+      <div class="panel">
+        <p>Dispatch is from Kathmandu by DHL or FedEx, packed by lot and weighed before seal. Typical transit is 7–14 days depending on customs lane and destination city. Tracking is issued on handoff day. Import duty, VAT, and customs brokerage are paid by the buyer in the receiving country. For 25kg+ orders, request palletized freight and lane-specific quotes.</p>
+      </div>
+    </section>
+
+    <section class="container reveal" id="contact">
+      <h2 class="section-title">Wholesale inquiry</h2>
+      <form class="panel" id="inquiry-form" novalidate>
+        <div class="form-grid">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" aria-label="Name" required>
+            <div class="error" id="err-name"></div>
+          </div>
+          <div>
+            <label for="contact-method">Preferred contact</label>
+            <select id="contact-method" name="contact-method" aria-label="Preferred contact" required>
+              <option value="">Select one</option>
+              <option>WhatsApp</option>
+              <option>WeChat</option>
+              <option>Email</option>
+            </select>
+            <div class="error" id="err-contact"></div>
+          </div>
+          <div>
+            <label for="country">Destination country</label>
+            <input id="country" name="country" aria-label="Destination country" required>
+            <div class="error" id="err-country"></div>
+          </div>
+          <div>
+            <label for="kg-needed">Kilograms needed</label>
+            <input id="kg-needed" name="kg-needed" type="number" min="0.5" step="0.5" aria-label="Kilograms needed" required>
+            <div class="error" id="err-kg"></div>
+          </div>
+        </div>
+        <label for="message">Order detail</label>
+        <textarea id="message" name="message" rows="4" aria-label="Order detail" required></textarea>
+        <div class="error" id="err-message"></div>
+        <button type="submit">Send wholesale inquiry</button>
+        <p id="form-status" class="success" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>BODHI BEADS</strong> · <span class="cjk">菩提子</span> · <span class="dev">नमस्ते</span></p>
+      <p>Sourced and graded in Kathmandu, Nepal</p>
+      <p><a href="#collection">Collection</a> · <a href="#shipping">Shipping</a> · Wholesale: WhatsApp / WeChat</p>
+      <p aria-hidden="true">☸</p>
+    </div>
+  </footer>
+
+  <aside class="modal" id="product-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="detail-name">
+      <button id="close-modal" style="float:right;">Close</button>
+      <div class="detail-layout">
+        <div>
+          <div class="zoom-wrap" id="zoom-wrap">
+            <!-- REPLACE: active product detail photo, 1:1, min 1200x1200 -->
+            <img id="img-detail-main" src="https://picsum.photos/seed/detail-main/1200/1200" alt="Active bodhi seed lot texture">
+          </div>
+          <div class="thumbs">
+            <!-- REPLACE: product detail alternate angle 1, 1:1, min 400x400 -->
+            <img id="img-detail-thumb-1" src="https://picsum.photos/seed/detail-thumb-1/400/400" alt="Detail thumbnail one">
+            <!-- REPLACE: product detail alternate angle 2, 1:1, min 400x400 -->
+            <img id="img-detail-thumb-2" src="https://picsum.photos/seed/detail-thumb-2/400/400" alt="Detail thumbnail two">
+            <!-- REPLACE: product detail alternate angle 3, 1:1, min 400x400 -->
+            <img id="img-detail-thumb-3" src="https://picsum.photos/seed/detail-thumb-3/400/400" alt="Detail thumbnail three">
+          </div>
+        </div>
+        <div>
+          <h2 id="detail-name"></h2>
+          <p id="detail-sub" class="meta"></p>
+          <div class="panel">
+            <label>Bead diameter</label>
+            <div class="pill-row" id="size-options" aria-label="Bead diameter selector"></div>
+            <label>Grade</label>
+            <div class="pill-row" id="grade-options" aria-label="Grade selector"></div>
+            <div class="switch">
+              <label for="drilled-toggle">Drilled (+$6/kg)</label>
+              <input id="drilled-toggle" type="checkbox" aria-label="Drilled toggle">
+            </div>
+            <label for="qty-range">Quantity in kilograms</label>
+            <input id="qty-range" type="range" min="0.5" max="50" step="0.5" value="1" aria-label="Quantity range slider">
+            <input id="qty-number" type="number" min="0.5" max="50" step="0.5" value="1" aria-label="Quantity number stepper">
+            <dl class="calc-grid">
+              <dt>Price per kg</dt><dd id="out-pricekg"></dd>
+              <dt>Approx. bead count</dt><dd id="out-beads"></dd>
+              <dt>Approx. malas (108 beads)</dt><dd id="out-malas"></dd>
+              <dt>Subtotal</dt><dd id="out-subtotal"></dd>
+              <dt>Shipping estimate</dt><dd id="out-shipping"></dd>
+              <dt>Grand total</dt><dd id="out-grand"></dd>
+            </dl>
+            <p id="savings" class="nudge"></p>
+            <table class="tier-table" aria-label="Bulk pricing tiers">
+              <thead><tr><th>Tier</th><th>Discount</th></tr></thead>
+              <tbody id="tier-body"></tbody>
+            </table>
+            <p id="nudge" class="nudge"></p>
+            <button id="add-cart-btn">Add 1kg to order</button>
+            <label class="switch"><input id="bell-toggle" type="checkbox"> Bell chime</label>
+          </div>
+          <div class="sticky-total-mobile">
+            <span>Running total</span><strong id="mobile-grand"></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Order cart drawer">
+    <button id="close-cart">Close</button>
+    <h2>Order cart</h2>
+    <p id="cart-empty">Nothing weighed out yet.</p>
+    <div id="cart-items"></div>
+    <p><strong>Total: <span id="cart-drawer-total"></span></strong></p>
+  </aside>
+
+  <script>
+    const products = [
+      { id: 'phoenix-eye', name: 'Phoenix Eye Bodhi', zh: '凤眼菩提', pinyin: 'fèng yǎn pú tí', note: 'Single-eye grain with tight skin and clean drilling lanes.', sizes:[7,8,9,10,12,14], grades:['A','AA','AAA','Collector'], base:98, popularity:99, image:'https://picsum.photos/seed/phoenix-eye/800/800', imgId:'img-phoenix-eye-main', disabledReason:'Phoenix eye is not milled below 7mm.' },
+      { id: 'star-moon', name: 'Star & Moon Bodhi', zh: '星月菩提', pinyin: 'xīng yuè pú tí', note: 'Dense star field and centered moon hole for carving lines.', sizes:[6,7,8,9,10,12], grades:['A','AA','AAA'], base:76, popularity:93, image:'https://picsum.photos/seed/star-moon/800/800', imgId:'img-star-moon-main' },
+      { id: 'rudraksha', name: 'Nepali Rudraksha (Vajra)', zh: '金刚菩提', pinyin: 'jīn gāng pú tí', note: 'Strong mukhi ridges, graded by face count and crack integrity.', sizes:[8,9,10,12,14,18], grades:['A','AA','AAA','Collector'], base:112, popularity:90, image:'https://picsum.photos/seed/rudraksha/800/800', imgId:'img-rudraksha-main' },
+      { id: 'lotus', name: 'Lotus Bodhi', zh: '莲花菩提', pinyin: 'lián huā pú tí', note: 'Ridged pale body with sculptural shoulders and low reject rate.', sizes:[8,9,10,12,14], grades:['A','AA','AAA'], base:68, popularity:81, image:'https://picsum.photos/seed/lotus/800/800', imgId:'img-lotus-main' },
+      { id: 'dragon-eye', name: 'Dragon Eye Bodhi', zh: '龙眼菩提', pinyin: 'lóng yǎn pú tí', note: 'Bold tri-mark grain pattern with darkening potential in use.', sizes:[7,8,9,10,12], grades:['A','AA','AAA'], base:83, popularity:77, image:'https://picsum.photos/seed/dragon-eye/800/800', imgId:'img-dragon-eye-main' },
+      { id: 'white-jade', name: 'White Jade Bodhi', zh: '白玉菩提', pinyin: 'bái yù pú tí', note: 'Ivory stock that polishes quickly toward a glass-like sheen.', sizes:[6,7,8,9,10], grades:['A','AA','AAA'], base:92, popularity:75, image:'https://picsum.photos/seed/white-jade/800/800', imgId:'img-white-jade-main' },
+      { id: 'thousand-eye', name: 'Thousand Eye Bodhi', zh: '千眼菩提', pinyin: 'qiān yǎn pú tí', note: 'Large speckled body with carving depth and broad drill tolerance.', sizes:[10,12,14,18], grades:['A','AA','AAA','Collector'], base:88, popularity:64, image:'https://picsum.photos/seed/thousand-eye/800/800', imgId:'img-thousand-eye-main' },
+      { id: 'tiger-skin', name: 'Tiger Skin Bodhi', zh: '虎皮菩提', pinyin: 'hǔ pí pú tí', note: 'High-contrast striping with stable color blocks lot to lot.', sizes:[7,8,9,10,12], grades:['A','AA','AAA'], base:79, popularity:72, image:'https://picsum.photos/seed/tiger-skin/800/800', imgId:'img-tiger-skin-main' }
+    ];
+
+    const gradeMult = { A:1, AA:1.18, AAA:1.36, Collector:1.72 };
+    const gradeDefs = {
+      A:'Visible variation, serviceable drilling, occasional tone shift; suited for budget production lots.',
+      AA:'Improved diameter consistency, cleaner hole alignment, fewer surface interruptions across batches.',
+      AAA:'Tight size tolerance, balanced color, low crack rejection, drilling lanes centered and smooth.',
+      Collector:'Highest uniformity and figure quality, selected for premium strand builds and display lots.'
+    };
+    const sizeMult = {6:1.18,7:1.11,8:1,9:0.95,10:0.9,12:0.82,14:0.76,18:0.68};
+    const tierRules = [
+      { min:0.5, max:0.9, discount:0, label:'0.5–0.9kg: base price' },
+      { min:1, max:4.9, discount:0.08, label:'1–4.9kg: −8%' },
+      { min:5, max:9.9, discount:0.15, label:'5–9.9kg: −15%' },
+      { min:10, max:24.9, discount:0.22, label:'10–24.9kg: −22%' },
+      { min:25, max:999, discount:0.30, label:'25kg+: −30% (contact for container pricing)' }
+    ];
+    const nextTierStarts = [1,5,10,25];
+    const rates = { USD:1, EUR:0.92, CNY:7.23, NPR:133.12 };
+    const symbols = { USD:'$', EUR:'€', CNY:'¥', NPR:'रू' };
+
+    let currency = 'USD';
+    let current = { product: products[0], size:8, grade:'A', drilled:false, qty:1 };
+    let cart = JSON.parse(localStorage.getItem('bodhi-cart') || '[]');
+
+    const fmt = n => new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(Math.round(n));
+    const money = usd => `${symbols[currency]}${(usd * rates[currency]).toFixed(currency==='NPR'?0:2)}`;
+
+    function tierFor(qty) { return tierRules.find(t => qty >= t.min && qty <= t.max) || tierRules[0]; }
+
+    function estimateBeadsPerKg(sizeMm) {
+      const count = 1820000 / Math.pow(sizeMm, 3);
+      return Math.max(120, Math.round(count));
+    }
+
+    function compute(item) {
+      const basePerKg = item.product.base * sizeMult[item.size] * gradeMult[item.grade] + (item.drilled ? 6 : 0);
+      const tier = tierFor(item.qty);
+      const discounted = basePerKg * (1 - tier.discount);
+      const beads = estimateBeadsPerKg(item.size) * item.qty;
+      const malas = beads / 108;
+      const subtotal = discounted * item.qty;
+      const shipping = 38 + (item.qty * 7.2);
+      const grand = subtotal + shipping;
+      const savingsKg = basePerKg - discounted;
+      return { basePerKg, discounted, beads, malas, subtotal, shipping, grand, tier, savingsKg };
+    }
+
+    function cardImageComment(id) {
+      const map = {
+        'img-phoenix-eye-main':'phoenix-eye-bodhi',
+        'img-star-moon-main':'star-moon-bodhi',
+        'img-rudraksha-main':'nepali-rudraksha',
+        'img-lotus-main':'lotus-bodhi',
+        'img-dragon-eye-main':'dragon-eye-bodhi',
+        'img-white-jade-main':'white-jade-bodhi',
+        'img-thousand-eye-main':'thousand-eye-bodhi',
+        'img-tiger-skin-main':'tiger-skin-bodhi'
+      };
+      return map[id];
+    }
+
+    function renderGrid() {
+      const sizeFilter = document.getElementById('filter-size').value;
+      const gradeFilter = document.getElementById('filter-grade').value;
+      const priceFilter = document.getElementById('filter-price').value;
+      const sortBy = document.getElementById('sort-by').value;
+      let data = [...products].filter(p => {
+        const sizeOk = sizeFilter === 'all' || p.sizes.includes(Number(sizeFilter.replace('mm','')));
+        const gradeOk = gradeFilter === 'all' || p.grades.includes(gradeFilter);
+        let priceOk = true;
+        if (priceFilter !== 'all') {
+          const [min,max] = priceFilter.split('-').map(Number);
+          priceOk = p.base >= min && p.base <= max;
+        }
+        return sizeOk && gradeOk && priceOk;
+      });
+
+      data.sort((a,b) => {
+        if (sortBy === 'price') return a.base - b.base;
+        if (sortBy === 'popularity') return b.popularity - a.popularity;
+        return Math.min(...a.sizes) - Math.min(...b.sizes);
+      });
+
+      const grid = document.getElementById('product-grid');
+      grid.innerHTML = data.map(p => {
+        const low = Math.min(...p.sizes), high = Math.max(...p.sizes);
+        return `<article class="card" data-id="${p.id}" tabindex="0" role="button" aria-label="Open ${p.name} detail">
+          <!-- REPLACE: ${p.imgId} ${cardImageComment(p.imgId)} main product photo, 1:1, min 800x800 -->
+          <img id="${p.imgId}" loading="lazy" src="${p.image}" alt="${p.name} raw seed lot">
+          <div class="card-body">
+            <h3>${p.name}</h3>
+            <p class="meta cjk">${p.zh} · <em>${p.pinyin}</em></p>
+            <p>${p.note}</p>
+            <p class="meta">Size ${low}–${high}mm · from ${money(p.base)}/kg</p>
+            <div class="badges"><span class="badge-tag">A</span><span class="badge-tag">AA</span><span class="badge-tag">AAA</span>${p.grades.includes('Collector')?'<span class="badge-tag">Collector</span>':''}</div>
+          </div>
+        </article>`;
+      }).join('');
+
+      [...grid.querySelectorAll('.card')].forEach(c => {
+        c.addEventListener('click', () => openProduct(c.dataset.id));
+        c.addEventListener('keypress', e => { if (e.key === 'Enter') openProduct(c.dataset.id); });
+      });
+    }
+
+    function renderOptions() {
+      const sizeWrap = document.getElementById('size-options');
+      const allSizes = [6,7,8,9,10,12,14,18];
+      sizeWrap.innerHTML = allSizes.map(s => {
+        const disabled = !current.product.sizes.includes(s);
+        const reason = current.product.disabledReason || `${current.product.name} is not available at ${s}mm.`;
+        return `<button class="pill ${current.size===s?'active':''}" data-size="${s}" ${disabled?'disabled':''} title="${disabled?reason:''}" aria-label="Select ${s} millimeter bead">${s}mm</button>`;
+      }).join('');
+
+      document.querySelectorAll('#size-options button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          current.size = Number(btn.dataset.size);
+          renderOptions();
+          recalc();
+        });
+      });
+
+      const gradeWrap = document.getElementById('grade-options');
+      const grades = ['A','AA','AAA','Collector'];
+      gradeWrap.innerHTML = grades.map(g => `<button class="pill ${current.grade===g?'active':''}" data-grade="${g}" ${!current.product.grades.includes(g)?'disabled':''}>${g}</button>`).join('');
+      document.querySelectorAll('#grade-options button').forEach(btn => btn.addEventListener('click', () => {
+        current.grade = btn.dataset.grade;
+        renderOptions();
+        recalc();
+      }));
+    }
+
+    function recalc() {
+      const out = compute(current);
+      document.getElementById('out-pricekg').textContent = money(out.discounted);
+      document.getElementById('out-beads').textContent = `≈ ${fmt(out.beads)} beads`;
+      document.getElementById('out-malas').textContent = `≈ ${fmt(out.malas)} malas`;
+      document.getElementById('out-subtotal').textContent = money(out.subtotal);
+      document.getElementById('out-shipping').textContent = money(out.shipping);
+      document.getElementById('out-grand').textContent = money(out.grand);
+      document.getElementById('mobile-grand').textContent = money(out.grand);
+      document.getElementById('add-cart-btn').textContent = `Add ${current.qty}kg to order`;
+
+      const savingsEl = document.getElementById('savings');
+      savingsEl.textContent = out.savingsKg > 0 ? `Wholesale tier reached — you're saving ${money(out.savingsKg)}/kg.` : '';
+
+      const tierBody = document.getElementById('tier-body');
+      tierBody.innerHTML = tierRules.map(t => `<tr class="${t===out.tier?'active':''}"><td>${t.label}</td><td>${Math.round(t.discount*100)}%</td></tr>`).join('');
+
+      const next = nextTierStarts.find(v => v > current.qty);
+      const nudge = document.getElementById('nudge');
+      if (next) {
+        const delta = (next - current.qty).toFixed(1);
+        nudge.textContent = `Add ${delta} kg more to unlock the ${next} kg wholesale rate.`;
+      } else {
+        nudge.textContent = 'Top tier active — contact for container pricing.';
+      }
+    }
+
+    function openProduct(id) {
+      const p = products.find(x => x.id === id);
+      current.product = p;
+      if (!p.sizes.includes(current.size)) current.size = p.sizes[0];
+      if (!p.grades.includes(current.grade)) current.grade = p.grades[0];
+      document.getElementById('detail-name').textContent = p.name;
+      document.getElementById('detail-sub').innerHTML = `<span class="cjk">${p.zh}</span> · ${p.pinyin}<br>${p.note}`;
+      document.getElementById('img-detail-main').src = p.image.replace('/800/800','/1200/1200');
+      document.getElementById('img-detail-main').alt = `${p.name} raw seed lot close texture`;
+      document.getElementById('img-detail-thumb-1').src = `https://picsum.photos/seed/${p.id}-thumb1/400/400`;
+      document.getElementById('img-detail-thumb-2').src = `https://picsum.photos/seed/${p.id}-thumb2/400/400`;
+      document.getElementById('img-detail-thumb-3').src = `https://picsum.photos/seed/${p.id}-thumb3/400/400`;
+      renderOptions();
+      recalc();
+      document.getElementById('product-modal').classList.add('open');
+      document.getElementById('product-modal').setAttribute('aria-hidden','false');
+    }
+
+    document.getElementById('close-modal').addEventListener('click', () => {
+      document.getElementById('product-modal').classList.remove('open');
+      document.getElementById('product-modal').setAttribute('aria-hidden','true');
+    });
+
+    document.getElementById('drilled-toggle').addEventListener('change', e => {
+      current.drilled = e.target.checked;
+      recalc();
+    });
+
+    function syncQty(val) {
+      const num = Math.min(50, Math.max(0.5, Number(val)));
+      current.qty = Math.round(num * 2) / 2;
+      document.getElementById('qty-range').value = current.qty;
+      document.getElementById('qty-number').value = current.qty;
+      recalc();
+    }
+    document.getElementById('qty-range').addEventListener('input', e => syncQty(e.target.value));
+    document.getElementById('qty-number').addEventListener('input', e => syncQty(e.target.value));
+
+    function saveCart() { localStorage.setItem('bodhi-cart', JSON.stringify(cart)); }
+
+    function renderCart() {
+      const wrap = document.getElementById('cart-items');
+      const empty = document.getElementById('cart-empty');
+      if (!cart.length) {
+        wrap.innerHTML = '';
+        empty.style.display = 'block';
+      } else {
+        empty.style.display = 'none';
+        wrap.innerHTML = cart.map((item,idx) => {
+          const out = compute(item);
+          return `<div class="cart-item">
+            <strong>${item.product.name}</strong>
+            <p>${item.size}mm · ${item.grade} · ${item.drilled?'Drilled':'Undrilled'}</p>
+            <label>Kg <input type="number" min="0.5" max="50" step="0.5" value="${item.qty}" data-idx="${idx}" class="cart-qty"></label>
+            <p>${money(out.grand)}</p>
+            <button data-remove="${idx}">Remove</button>
+          </div>`;
+        }).join('');
+      }
+      const totalUsd = cart.reduce((sum,i) => sum + compute(i).grand, 0);
+      const qty = cart.reduce((sum,i) => sum + i.qty, 0);
+      document.getElementById('cart-drawer-total').textContent = money(totalUsd);
+      document.getElementById('cart-total-head').textContent = money(totalUsd);
+      document.getElementById('cart-count').textContent = String(Math.round(qty));
+
+      wrap.querySelectorAll('.cart-qty').forEach(inp => inp.addEventListener('input', e => {
+        const idx = Number(e.target.dataset.idx);
+        cart[idx].qty = Math.round(Math.max(0.5, Math.min(50, Number(e.target.value))) * 2) / 2;
+        saveCart();
+        renderCart();
+      }));
+      wrap.querySelectorAll('[data-remove]').forEach(btn => btn.addEventListener('click', e => {
+        cart.splice(Number(e.target.dataset.remove),1);
+        saveCart();
+        renderCart();
+      }));
+    }
+
+    document.getElementById('add-cart-btn').addEventListener('click', () => {
+      cart.push(JSON.parse(JSON.stringify(current)));
+      saveCart();
+      renderCart();
+      if (document.getElementById('bell-toggle').checked) {
+        const ctx = new AudioContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.frequency.value = 660; gain.gain.value = 0.04;
+        osc.connect(gain).connect(ctx.destination); osc.start(); osc.stop(ctx.currentTime + .07);
+      }
+      document.getElementById('cart-count').animate([{transform:'scale(1)'},{transform:'scale(1.3)'},{transform:'scale(1)'}],{duration:240});
+    });
+
+    document.getElementById('open-cart').addEventListener('click', ()=>document.getElementById('cart-drawer').classList.add('open'));
+    document.getElementById('close-cart').addEventListener('click', ()=>document.getElementById('cart-drawer').classList.remove('open'));
+
+    document.querySelectorAll('#filter-size,#filter-grade,#filter-price,#sort-by').forEach(el => el.addEventListener('change', renderGrid));
+
+    const compControls = document.getElementById('size-comparator-controls');
+    [6,7,8,9,10,12,14,18].forEach(s => {
+      const b = document.createElement('button');
+      b.className = 'pill';
+      b.textContent = `${s}mm`;
+      b.addEventListener('click', () => {
+        document.getElementById('scale-area').innerHTML = `<div style="display:grid;place-items:center;gap:.4rem;"><div aria-label="${s} millimeter bead at relative scale" style="width:${s*5}px;height:${s*5}px;border-radius:50%;background:radial-gradient(circle at 32% 30%, #d7b47e, #6f4727 70%);border:1px solid #614025;"></div><small>${s}mm bead</small></div>`;
+      });
+      compControls.appendChild(b);
+    });
+    compControls.querySelector('button').click();
+
+    const gradeTabs = document.getElementById('grade-tabs');
+    ['A','AA','AAA','Collector'].forEach(g => {
+      const b = document.createElement('button');
+      b.className = 'pill'; b.textContent = g;
+      b.addEventListener('click', () => {
+        document.getElementById('grade-detail').innerHTML = `<p><strong>${g}</strong>: ${gradeDefs[g]}</p><p class="meta">A vs AAA: AAA lots hold tighter diameter tolerance and lower crack rejection under drilling.</p>`;
+      });
+      gradeTabs.appendChild(b);
+    });
+    gradeTabs.querySelectorAll('button')[2].click();
+
+    const mukhiText = {
+      1:'Single-face: rare alignment, mostly collector demand.',
+      2:'Two-face: paired channels, selected for symbolic duality sets.',
+      3:'Three-face: balanced triangular ridging for medium diameters.',
+      4:'Four-face: stable groove depth, common for bench carving prep.',
+      5:'Five-face: most traded profile, broad wholesale utility.',
+      6:'Six-face: cleaner segmentation, often requested in Japan lots.',
+      7:'Seven-face: deeper valleys, favored for visible texture.',
+      8:'Eight-face: crisp channel geometry, lower-volume supply.',
+      9:'Nine-face: strong ridge definition, often bought in mixed grades.',
+      10:'Ten-face: less frequent; verify count under direct side light.',
+      11:'Eleven-face: high collector interest with strict crack rejection.',
+      12:'Twelve-face: narrow supply window and premium sorting labor.',
+      13:'Thirteen-face: specialty request, quoted per lot after inspection.',
+      14:'Fourteen-face: high scarcity and manual verification only.'
+    };
+    const mukhiControls = document.getElementById('mukhi-controls');
+    for (let i=1;i<=14;i++) {
+      const b = document.createElement('button');
+      b.className='pill'; b.textContent=String(i);
+      b.addEventListener('click',()=>document.getElementById('mukhi-detail').textContent=`${i} mukhi — ${mukhiText[i]}`);
+      mukhiControls.appendChild(b);
+    }
+    mukhiControls.querySelector('button').click();
+
+    const reviews = [
+      ['★★★★★','Tenzin Dorjee','Dharamshala, India','Ordered 3kg of 8mm phoenix eye, AAA. Size consistency beat my last two suppliers.'],
+      ['★★★★★','Chen Wei-Lin (陳偉霖)','Taipei, Taiwan','星月菩提 quality is genuine. The moon holes are deep and centered. Shipped in nine days.'],
+      ['★★★★☆','Sarah Kirkpatrick','Portland, USA','I buy 5kg at a time. Bulk pricing is fair and drilling is clean. Need more 6mm stock.'],
+      ['★★★★★','Kenji Watanabe (渡辺健二)','Kyoto, Japan','Rudraksha mukhi counts were exactly as described. Rare honesty on grade claims.'],
+      ['★★★★★','Anjali Shrestha','Kathmandu, Nepal','I have bought for four years for my Thamel shop. They sort honestly.'],
+      ['★★★★☆','Marc Dubois','Lyon, France','10kg lotus bodhi, undrilled. Weight matched to the gram and packed well.'],
+      ['★★★★★','Liang Ru','Singapore','7kg tiger skin lot arrived with low reject count and even color across sacks.'],
+      ['★★★★★','Pema Lhamo','Thimphu, Bhutan','Collector phoenix eye lots are worth the premium when clients demand matched strands.'],
+      ['★★★★★','Noah Feldman','Berlin, Germany','14mm thousand eye order came exactly in stated size band with no hidden filler.']
+    ];
+    const reviewHtml = reviews.map(r=>`<article class="review"><p>${r[0]} <strong>${r[1]}</strong> — ${r[2]}</p><p>“${r[3]}”</p></article>`).join('');
+    document.getElementById('reviews-marquee').innerHTML = reviewHtml + reviewHtml;
+
+    document.getElementById('inquiry-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const vals = {
+        name: document.getElementById('name').value.trim(),
+        contact: document.getElementById('contact-method').value,
+        country: document.getElementById('country').value.trim(),
+        kg: Number(document.getElementById('kg-needed').value),
+        message: document.getElementById('message').value.trim()
+      };
+      const errors = {
+        name: vals.name ? '' : 'Enter the buyer name used on shipping documents.',
+        contact: vals.contact ? '' : 'Choose how we can confirm grading and dispatch.',
+        country: vals.country ? '' : 'Enter destination country for customs routing.',
+        kg: vals.kg >= 0.5 ? '' : 'Enter at least 0.5kg so we can quote the correct tier.',
+        message: vals.message.length >= 20 ? '' : 'Add seed type, size, grade, and drilled/undrilled request.'
+      };
+      document.getElementById('err-name').textContent = errors.name;
+      document.getElementById('err-contact').textContent = errors.contact;
+      document.getElementById('err-country').textContent = errors.country;
+      document.getElementById('err-kg').textContent = errors.kg;
+      document.getElementById('err-message').textContent = errors.message;
+      if (Object.values(errors).every(v => !v)) {
+        document.getElementById('form-status').textContent = 'Inquiry logged. We will return a lot-specific quote with shipping lanes within one business day.';
+        e.target.reset();
+      } else {
+        document.getElementById('form-status').textContent = '';
+      }
+    });
+
+    document.addEventListener('wheel', e => {
+      const wheel = document.getElementById('prayer-wheel');
+      const currentRot = Number(wheel.dataset.rot || 0) + (e.deltaY * 0.08);
+      wheel.dataset.rot = currentRot;
+      wheel.style.transform = `rotate(${currentRot}deg)`;
+    }, { passive: true });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(ent => { if (ent.isIntersecting) ent.target.classList.add('in'); });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.getElementById('zoom-wrap').addEventListener('mousemove', e => {
+      const box = e.currentTarget.getBoundingClientRect();
+      const x = ((e.clientX - box.left) / box.width) * 100;
+      const y = ((e.clientY - box.top) / box.height) * 100;
+      const img = document.getElementById('img-detail-main');
+      img.style.transformOrigin = `${x}% ${y}%`;
+      img.style.transform = 'scale(1.8)';
+    });
+    document.getElementById('zoom-wrap').addEventListener('mouseleave', () => {
+      document.getElementById('img-detail-main').style.transform = 'scale(1)';
+    });
+
+    document.getElementById('img-detail-thumb-1').addEventListener('click', e => document.getElementById('img-detail-main').src = e.target.src.replace('/400/400','/1200/1200'));
+    document.getElementById('img-detail-thumb-2').addEventListener('click', e => document.getElementById('img-detail-main').src = e.target.src.replace('/400/400','/1200/1200'));
+    document.getElementById('img-detail-thumb-3').addEventListener('click', e => document.getElementById('img-detail-main').src = e.target.src.replace('/400/400','/1200/1200'));
+
+    const currencySelect = document.createElement('select');
+    currencySelect.setAttribute('aria-label','Currency switcher');
+    ['USD','EUR','CNY','NPR'].forEach(c => {
+      const o = document.createElement('option'); o.value=c; o.textContent=c; currencySelect.appendChild(o);
+    });
+    currencySelect.addEventListener('change', e => { currency = e.target.value; renderGrid(); recalc(); renderCart(); });
+    document.querySelector('.topbar').appendChild(currencySelect);
+
+    renderGrid();
+    renderCart();
+    recalc();
+    openProduct(products[0].id);
+    document.getElementById('product-modal').classList.remove('open');
+    document.getElementById('product-modal').setAttribute('aria-hidden','true');
+  </script>
+</body>
+</html>
